@@ -22,14 +22,11 @@ inst_freq = np.pad(inst_freq, (0, 1), mode='constant')
 # converts inst freq to hertz
 inst_freq_hz = (inst_freq * sr) / (2 * np.pi)
 
-min = 1
+min = 0
 max = 1000
 
 current_min = np.min(inst_freq_hz)
 current_max = np.max(inst_freq_hz)
 
-scaled_freq = inst_freq_hz * ((max - min) / (current_max - current_min)) + min
+scaled_freq = (inst_freq_hz - current_min) / (current_max - current_min) * (max - min) + min
 print(scaled_freq)
-
-
-print(inst_freq_hz)
