@@ -2,10 +2,10 @@ import librosa
 import librosa.display
 import soundfile as sf
 import numpy as np
+import matplotlib.pyplot as plt
 
-
-song_name = "tswift"
-file = f'venv/music/{song_name}.wav'
+song_name = "song"
+file = f'venv/music/{song_name}.mp3'
 
 audio_array, sr = librosa.load(file)
 
@@ -20,7 +20,7 @@ S_filter = librosa.decompose.nn_filter(
 S_filter = np.minimum(S_full, S_filter)
 
 margin_i, margin_v = 2, 10
-power = 2
+power = 1
 
 mask_i = librosa.util.softmask(S_filter,
                                margin_i * (S_full - S_filter),
@@ -41,3 +41,4 @@ harmonic, percussive = librosa.effects.hpss(audio_array)
 
 sf.write('venv/music/harmonic.wav', harmonic, sr)
 sf.write('venv/music/percussive.wav', percussive, sr)
+
