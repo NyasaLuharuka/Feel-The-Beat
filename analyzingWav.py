@@ -1,32 +1,23 @@
-import librosa.display
+import matplotlib.pyplot as plt
 import numpy as np
+import wave
 
-# load in music
-audio_array, sr = librosa.load("venv/music/song.mp3")
+def visualize(path):
+    raw = wave.open(path)
 
-# set time in parts of song
-time = np.arange(0, len(audio_array)) / sr
+    #read all frames of wav
+    signal = raw.readframes(-1)
+    signal = np.frombuffer(signal, dtype="int16")
 
-# splits music into simpler sine wave frequencies
-D = librosa.stft(audio_array)
+    frames = raw.getframerate()
 
-# measures the phase angle, how fast freq changes
-phase = np.angle(D)
+    time = np.linspace(0, len(signal)/frames, num=len(signal))
 
-# calculates the inst freq
-inst_freq = np.diff(phase) / (2 * np.pi / D.shape[1])
+    plt.figure(1)
+    plt.title("Analyzing Wav")
+    plt.xlabel("Time")
+    plt.plot(time, signal)
+    plt.show()
 
-# pads any values that stay the same
-inst_freq = np.pad(inst_freq, (0, 1), mode='constant')
-
-# converts inst freq to hertz
-inst_freq_hz = (inst_freq * sr) / (2 * np.pi)
-
-min = 0
-max = 1000
-
-current_min = np.min(inst_freq_hz)
-current_max = np.max(inst_freq_hz)
-
-scaled_freq = (inst_freq_hz - current_min) / (current_max - current_min) * (max - min) + min
-print(scaled_freq)
+if __name__ == "__main__":
+    visualize('venv/music/percussive.wav')

@@ -4,11 +4,23 @@ import soundfile as sf
 import numpy as np
 import matplotlib.pyplot as plt
 
-song_name = "song"
-file = f'venv/music/{song_name}.mp3'
+def plot_spect(signal, sample_rate, output_path):
+    stft = librosa.stft(signal)
+    spect = np.abs(stft)
+    spect_db = librosa.amplitude_to_db(spect)
+
+    plt.figure(figsize=(10, 4))
+    img = librosa.display.specshow(spect_db, y_axis='log', x_axis='time', sr=sample_rate, cmap='inferno')
+    plt.show()
+
+
+song_name = "vocal"
+file = f'venv/music/{song_name}.wav'
 
 audio_array, sr = librosa.load(file)
 
+plot_spect(audio_array, sr, 'blah blah blah')
+'''
 S_full, phase = librosa.magphase(librosa.stft(audio_array))
 
 S_filter = librosa.decompose.nn_filter(
@@ -42,3 +54,4 @@ harmonic, percussive = librosa.effects.hpss(audio_array)
 sf.write('venv/music/harmonic.wav', harmonic, sr)
 sf.write('venv/music/percussive.wav', percussive, sr)
 
+'''
