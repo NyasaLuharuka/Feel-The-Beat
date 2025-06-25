@@ -1,31 +1,29 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
 import wave
 from scipy.io import wavfile
-from scipy.fftpack import fft
-import soundfile as sf
+from scipy.fft import rfft, rfftfreq
+
 def get_amp_freq(path, window_size=1024, hop_size=512):
     sample_rate, data = wavfile.read(path)
-    data1, sample_rate1 = sf.read(path)
     if len(data.shape) == 2:
         data = data.mean(axis=1)
 
-
-
-    amplitudes = data.tolist()
-
-    num_windows = (len(data) - window_size) // hop_size
     frequencies = []
+    amplitudes = []
 
-    for i in range(num_windows):
-        start = i*hop_size
-        end = start+window_size
-        window = data[start:end] * np.hanning(window_size)
-        spectrum = np.abs(fft(window))[:window_size // 2]
+    for start in range(0, len(data)-window_size, hop_size):
+        window = data[start:start+window_size]
+        windowed = window * np.hanning(len(window))
+        spectrum = rfft(windowed)
 
-        peak_index = np.argmax(spectrum)
-        freq = peak_index * sample_rate / window_size
-        frequencies.append(freq)
+        freqs = rfftfreq(window_size, 1 / sample_rate)
+        amps = np.abs(spectrum)
+
+        peak_index = np.argmax(amps)
+
+        frequencies.append(freqs[peak_index])
+        amplitudes.append(amps[peak_index])
 
     print(amplitudes[:100])
     print(frequencies[:100])
@@ -69,4 +67,4 @@ def visualize(path):
 
 if __name__ == "__main__":
     #visualize('venv/music/percussive.wav')
-    get_amp_freq("tmp.wav")
+    get_amp_freq("song.wav")
