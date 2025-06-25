@@ -1,5 +1,5 @@
 # Generating Sine wave by MCP4725 DAC with Raspberry Pi
-
+#Need to get a raspberry pi to test so...
 import time
 
 # Import the MCP4725 module.
