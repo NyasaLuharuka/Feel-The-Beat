@@ -2,9 +2,8 @@ import subprocess
 import threading
 
 channels = [
-    (1, 0, "vocals.wav"),
-    (2, 0, "drums.wav"),
-    (3, 0, "bass.wav")
+    (2, 0, "vocals.wav"),
+    (3, 0, "percussive.wav"),
 ]
 
 def play_stream(card, device, wav):
@@ -20,4 +19,4 @@ for card, dev, wav in channels:
 for t in threads:
     t.join()
 
-print("All playback finished!")
+print("Done")
