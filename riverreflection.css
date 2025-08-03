@@ -1,0 +1,195 @@
+* {
+    font-family: 'Funnel Display';
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: forestgreen;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: right;
+    text-align: center;
+    padding: 14px 18px;
+    text-decoration: none;
+    font-size: 23px;
+}
+
+.navbar img {
+    float: left;
+    height: 65px;
+    width: 90px;
+}
+
+.home {
+    height: 0;
+    width: 0;
+}
+
+/* Title */
+
+.title {
+    background-image: url('../images/waterfall.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.title .text {
+    padding-top: 350px;
+    color: white;
+}
+
+.title .text .xl {
+    animation-name: slide-left;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    margin-left: 10%;
+
+}
+
+.title .text .md {
+    animation-name: slide-left;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    margin-left: 10%;
+}
+
+.title .text .small {
+    text-align: center;
+    animation-name: slide-left;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    margin-left: 10%;
+}
+
+.arrow {
+    padding: 15% 0px 0px 45%;
+}
+
+/* More */
+
+.more {
+    background-image: url('../images/waterfall2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+textarea {
+    width: 75%;
+    height: 75%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: 0 0 10px black;
+}
+
+
+#save {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #45a049;
+    transition: 1s ease;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+li {
+    background: #f1f1f1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.deleteBtn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 3px 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+}
+  
+.deleteBtn:hover {
+    background: #d32f2f;
+}
+
+.more .xl {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes slide-left {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 10%;
+      width: 100%;
+    }
+}
+
+@keyframes slide-left-circle {
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: 0%;
+    }
+}
+
+/* Font Sizes */
+
+.small {
+    font-size: 23px;
+    font-weight: 8;
+}
+
+.md {
+    font-size: 35px;
+    font-weight: 350;
+}
+
+.lg {
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.xl {
+    font-size: 100px;
+    font-weight: 600;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyasaland</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/riverreflection.css"/>
+    <link rel="shortcut icon" href="images/favicon.ico" type = "image/x-icon"/>
+</head>
+<body>
+    <div class="home">
+        <a href="index.html"><img src="images/cowboytrans.png" alt="cowboy" height="65px" width="90px"></a>
+    </div>
+    <div class="navbar">
+        
+       
+        <a class="btn" href="login.html">
+            <i class="fas fa-user"></i> Start
+        </a>
+        <a href="#">Project Blog</a>
+        <a href="#">About Me</a>
+    </div>
+
+    <section class="title">
+        <div class="text">
+            <h1 class="md">Welcome To</h1>
+            <h1 class="xl">River of Reflection</h1>
+            <p class="small">journaling</p>
+        </div>
+        <div class="arrow">
+            <img src="images/arrow.png" alt="arrow pointing down">
+        </div>
+    </section>
+
+    <section class="more">
+        <h1 class="xl">Journal</h1>
+
+        <textarea id="entry" placeholder="Write here!"></textarea>
+        <button id="save">Save Entry</button>
+
+        <h1 class="md">Previous Entries</h1>
+        <ul id="entriesList"></ul>
+        
+    </section>
+    
+    <script src="journal.js"></script>
+</body>
+</html>
